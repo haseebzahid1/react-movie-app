@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import FormHook from "./component/FormHook";
+import FormZod from "./component/FormZod";
 // import Button from "./component/Button";
 // import Alert from "./component/Alert";
 // import ListGroup from "./component/ListGroup";
@@ -14,7 +14,7 @@ import FormHook from "./component/FormHook";
 function App() {
  
   return (
-    <FormHook /> 
+    <FormZod /> 
   );
 }
 
