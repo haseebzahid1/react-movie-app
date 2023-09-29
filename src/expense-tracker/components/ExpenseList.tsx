@@ -13,6 +13,7 @@ interface props {
 }
 
 const ExpenseList = ({ expenses, onDelete }: props) => {
+    if(expenses.length === 0) return null;
   return (
     <table className="table table-bordered">
       <thead>
@@ -54,3 +55,6 @@ const ExpenseList = ({ expenses, onDelete }: props) => {
 };
 
 export default ExpenseList;
+
+
+// lecture no 57 Building ExpenseList
