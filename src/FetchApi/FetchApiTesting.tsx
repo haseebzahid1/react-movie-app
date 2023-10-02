@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import apiClients, { CanceledError } from "../services/api-clients";
 import userService, { User } from "../services/userService";
 
-// interface User { cut
+// interface User {
 //   id: number;
 //   name: string;
 // }
@@ -22,7 +22,7 @@ const FetchApiTesting = () => {
     //     setLoading(false);
     // })
     setLoading(true);
-    const { request, cancel } = userService.getAllUsers();
+    const { request, cancel } = userService.getAll<User>();
     request
       .then((res) => {
         setUsers(res.data);
@@ -40,7 +40,7 @@ const FetchApiTesting = () => {
     const originUsers = [...users];
     setUsers(users.filter((u) => u.id !== user.id));
     // apiClients.delete('users/' + user.id) cut
-    userService.deleteUser(user.id).catch((err) => {
+    userService.delete(user.id).catch((err) => {
       setError(err.message);
       setUsers(originUsers);
     });
@@ -54,7 +54,7 @@ const FetchApiTesting = () => {
     // apiClients
     //   .post("/users", newUser) cut
     userService
-      .createUser(newUser)
+      .create(newUser)
       .then(({ data: saveUser }) => setUsers([saveUser, ...users]))
       .catch((err) => {
         setError(err.message);
@@ -66,7 +66,7 @@ const FetchApiTesting = () => {
     const originUsers = [...users];
     const updatedUser = { ...user, name: user.name + "!" };
     setUsers(users.map((u) => (u.id === user.id ? updatedUser : u)));
-    userService.updateUser(updatedUser).catch((err) => {
+    userService.update(updatedUser).catch((err) => {
       setError(err.message);
       setUsers(originUsers);
     });
@@ -117,3 +117,5 @@ export default FetchApiTesting;
 // creating data lecture no 73
 // updating data lecture no 74
 // Extracting a reusable api client lecture no 75
+// Extracting the User service lecture no 76
+// Creating a Generice HTTp Service lecture no 77
