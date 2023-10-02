@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import FormZod from "./component/FormZod";
+// import FormZod from "./component/FormZod";
 import ExpenseList from "./expense-tracker/components/ExpenseList";
 import ExpenseFilter from "./expense-tracker/components/ExpenseFilter";
 import ExpenseForm from "./expense-tracker/components/ExpenseForm";
@@ -15,6 +15,7 @@ import ExpenseForm from "./expense-tracker/components/ExpenseForm";
 // import Object from "./component/Object";
 // import Array from "./component/Array";
 import categories from "./expense-tracker/Categories";
+import FetchApiTesting from "./FetchApi/FetchApiTesting";
 
 function App() {
 
@@ -30,15 +31,16 @@ function App() {
     const visibleExpenses = selectCategory ? expenses.filter((e) => e.category === selectCategory) : expenses
 
   return (
-    <div>
-      <div className="mb-5">
-        <ExpenseForm onSubmit={(expense) => setExpenses([...expenses,{...expense, id:expenses.length + 1}])} /> {/*note line*/}
-      </div>
-      <div className="mb-3">
-      <ExpenseFilter onSelectCategory={(category) => setselectCategory(category)} />
-      </div>
-      <ExpenseList expenses={visibleExpenses} onDelete={(id) => setExpenses(expenses.filter(e => e.id !== id))} />
-    </div>
+    // <div>
+    //   <div className="mb-5">
+    //     <ExpenseForm onSubmit={(expense) => setExpenses([...expenses,{...expense, id:expenses.length + 1}])} /> {/*note line*/}
+    //   </div>
+    //   <div className="mb-3">
+    //   <ExpenseFilter onSelectCategory={(category) => setselectCategory(category)} />
+    //   </div>
+    //   <ExpenseList expenses={visibleExpenses} onDelete={(id) => setExpenses(expenses.filter(e => e.id !== id))} />
+    // </div>
+    <FetchApiTesting />
   );
 }
 

@@ -17,7 +17,7 @@ const schema = z.object({
     errorMap: () => ({ message: "Category is required" }),
   }),
 });
-
+ 
 type ExpenseFormData = z.infer<typeof schema>;
 
 interface props {
@@ -32,7 +32,6 @@ const ExpenseForm = ({ onSubmit }: props) => {
     formState: { errors },
   } = useForm<ExpenseFormData>({ resolver: zodResolver(schema) });
 
-  //   const onSubmit = (data: FieldValues) => console.log(data);
   return (
     <form
       onSubmit={handleSubmit((data) => {
@@ -93,4 +92,4 @@ export default ExpenseForm;
 
 // lecture no 59 Building ExpenseFilter
 // lecture no 60 integrating React Hook From and Zod
-// lecture no 61 Adding an Expense
+// lecture no 61 Adding an Expense  is very imporant
